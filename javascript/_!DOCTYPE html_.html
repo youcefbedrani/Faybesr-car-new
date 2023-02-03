@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Document</title>
+   <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@700&family=Kufam:ital,wght@1,700&family=Oswald:wght@400;500&display=swap"
+      rel="stylesheet">
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+   <link rel="preconnect" href="https://fonts.googleapis.com">
+   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+   <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300;400&display=swap" rel="stylesheet">
+   <meta name="viewport" content="width=device-width, initial-scale=1">
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
+      integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w=="
+      crossorigin="anonymous" referrerpolicy="no-referrer" />
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+   <style>
+      .one{
+         display: flex;
+         align-items: flex-end;
+         justify-content: end;
+      }
+      #textformenu{
+         position: absolute;
+         top: 2px;
+         right: 1px;
+         width: 109px;
+         height: 102px;
+         background-color: rgb(255, 255, 255);
+         border-radius: 1px;
+         box-shadow: -1px 0.3px 3px 0px rgb(201, 201, 201);
+         visibility:hidden;
+         overflow: hidden;
+      }
+      #open{
+         float: left;
+         margin-right: -33px;
+      }
+      #close{
+         float: left;
+         z-index: -1;
+      }
+      #container {
+   display: inline-block;
+   cursor: pointer;
+   margin: 38px -0 0 56px;
+   z-index: 8;
+}
+.bar1,
+.bar2,
+.bar3 {
+   width: 109px;
+   height: 18px;
+   background-color: #3f565d;
+   margin: 12px 0;
+   border-radius: 12px;
+   transition: 0.4s;
+}
+.change .bar1{
+   transform: translate(0, 11px) rotate(-45deg);
+}
+.change .bar2 {
+   opacity: 0;
+}
+.change .bar3 {
+   transform: translate(0, -45px) rotate(45deg);
+}
+#textformenu ul{
+   display: grid;
+    grid-template-rows: 7px 7px 7px 7px 33px;
+    margin-left: -32px;
+    margin-top: 12px;
+}
+#textformenu ul li{
+   margin-top: 43px;
+    list-style-type: none;
+    text-decoration: none;
+    font-size: 3px;
+    cursor: pointer;
+    background-color: aqua;
+}
+.textinfo h2{
+   font-size: 2px;
+    margin-left: -44px;
+    text-align: center;
+}
+.scrolltop{
+   position: fixed;
+   width: 100px;
+   height: 100px;
+   border-radius: 50%;
+   bottom: 0;
+   right: 0;
+   margin-right: 71px;
+   margin-bottom: 47px;
+   z-index: 1000;
+   animation-name: show;
+   animation-duration: 4s;
+   opacity: 1;
+   border-radius: 150px;
+   
+   background: linear-gradient(145deg, #52a1ea, #4587c5);
+   box-shadow:  5px 5px 10px #356897,
+             -5px -5px 10px #65c5ff;
+}
+.scrolltop:hover{
+   transition: box-shadow 2s ease-in 1s;
+   box-shadow: inset 5px 5px 10px #356897,
+            inset -5px -5px 10px #65c5ff;
+}
+@keyframes show {
+   from{
+      opacity: 0.2;
+   }
+   to{
+      opacity: 1;
+   }
+}
+.scrolltop i{
+   font-size: 60px;
+    margin-top: 19px;
+    color: white;
+    margin-left: 29px;
+}
+   </style>
+</head>
+<body>
+   <div class="scrolltop">
+      <i class="fa-solid fa-arrow-up"></i>
+   </div>
+   <div class="one">
+      <div id="container" onclick="myMove(this)">
+         <div class="bar1"></div>
+         <div class="bar2"></div>
+         <div class="bar3"></div>
+      </div>
+      <div id="textformenu">
+         <ul>
+            <li id="1">Home</li>
+            <li id="2">FUATERED PRODUCT</li>
+            <li id="3">COLLECTION</li>
+            <li id="4">SHOP</li>
+            <li id="5">CONTACT</li>
+         </ul>
+         <div class="textinfo">
+            <h2>+213551462476</h2>
+            <h2>faybest@gmail.com</h2>
+            <h2>Algeria-Djelfa-Zian_Achour</h2>
+         </div>
+      </div>
+   </div>
+   <script>
+      var clicker = document.getElementById("container");
+      var count=0;
+      function myMove(){
+         clicker.classList.toggle("change");
+         count+=1;
+         console.log(count);
+         if (count % 2 != 0) {
+            document.getElementById("textformenu").style.visibility = "visible";
+            document.getElementById("textformenu").style.transition = "transform 1s";
+            document.getElementById("textformenu").style.transform = "scale(8,16)";
+         }
+         if(count % 2 == 0){
+            document.getElementById("textformenu").style.transform = "scale(0,3)";
+            document.getElementById("textformenu").style.right = "-50px";
+            document.getElementById("textformenu").style.top = "-50px";
+         }
+         return count;
+      }
+   </script>
+</body>
+</html>
